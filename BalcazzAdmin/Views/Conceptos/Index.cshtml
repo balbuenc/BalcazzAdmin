@@ -1,0 +1,51 @@
+﻿@model IEnumerable<BalcazzAdmin.Models.Conceptos>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Concepto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fecha)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Monto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Facturas.Cliente)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Concepto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fecha)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Monto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Facturas.Cliente)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IdConcepto }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IdConcepto }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IdConcepto })
+        </td>
+    </tr>
+}
+
+</table>
